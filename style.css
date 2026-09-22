@@ -1,0 +1,474 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #050807;
+    color: #d9ffe6;
+    font-family: "Courier New", monospace;transition: background 0.8s ease;
+}
+
+
+
+body.unlocked {
+    background: #031d12;
+}
+
+
+.game-container {
+    width: min(900px, 92%);
+    margin: 0 auto;
+    padding: 35px 0;
+}
+
+
+
+/* =================================
+   HEADER
+================================= */
+
+.header {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+}
+
+
+.terminal-label {
+
+    color: #00ff66;
+
+    letter-spacing: 2px;
+
+    font-size: 0.8rem;
+}
+
+
+h1 {
+
+    color: #00ff66;
+
+    font-size: clamp(1.8rem, 5vw, 3rem);
+
+    margin: 10px 0;
+
+    text-shadow:
+        0 0 12px #00ff66;
+}
+
+
+
+/* =================================
+   STATUS
+================================= */
+
+.status-panel,
+.task,
+.win-screen {
+
+    border: 1px solid #145c31;
+
+    background: #08110d;
+
+    box-shadow:
+        0 0 20px rgba(0, 255, 102, 0.08);
+
+    border-radius: 8px;
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+}
+
+
+.status-panel h2 {
+
+    color: #00ff66;
+}
+
+
+
+/* =================================
+   FORTSCHRITTSBALKEN
+================================= */
+
+.progress {
+
+    height: 12px;
+
+    background: #17221c;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin: 12px 0;
+}
+
+
+#progressBar {
+
+    width: 0%;
+
+    height: 100%;
+
+    background: #00ff66;
+
+    box-shadow:
+        0 0 12px #00ff66;
+
+    transition:
+        width 0.5s ease;
+}
+
+
+
+/* =================================
+   AUFGABEN
+================================= */
+
+.task {
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+.task.active:hover {
+
+    transform: translateY(-2px);
+
+    border-color: #00ff66;
+}
+
+
+/* Gesperrte Aufgabe */
+
+.task.locked {
+
+    opacity: 0.45;
+
+    filter: grayscale(0.7);
+}
+
+
+/* Abgeschlossene Aufgabe */
+
+.task.completed {
+
+    border-color: #00ff66;
+
+    background: #07170d;
+}
+
+
+
+/* =================================
+   AUFGABEN-KOPF
+================================= */
+
+.task-header {
+
+    display: grid;
+
+    grid-template-columns:
+        auto 1fr auto;
+
+    gap: 15px;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+
+.task-number {
+
+    color: #00ff66;
+
+    font-size: 1.5rem;
+
+    font-weight: bold;
+}
+
+
+.badge {
+
+    border: 1px solid #607267;
+
+    padding: 5px 9px;
+
+    font-size: 0.7rem;
+}
+
+
+.completed .badge {
+
+    color: #00ff66;
+
+    border-color: #00ff66;
+}
+
+
+
+/* =================================
+   EINGABEFELDER
+================================= */
+
+label {
+
+    display: block;
+
+    margin-bottom: 7px;
+}
+
+
+input {
+
+    width: 100%;
+
+    padding: 12px;
+
+    background: #030604;
+
+    color: #d9ffe6;
+
+    border: 1px solid #28653d;
+
+    border-radius: 4px;
+
+    font: inherit;
+
+    margin-bottom: 12px;
+}
+
+
+input:focus {
+
+    outline: none;
+
+    border-color: #00ff66;
+
+    box-shadow:
+        0 0 8px rgba(0, 255, 102, 0.35);
+}
+
+
+
+/* =================================
+   BUTTONS
+================================= */
+
+button {
+
+    padding: 11px 16px;
+
+    background: #092e18;
+
+    color: #00ff66;
+
+    border: 1px solid #00ff66;
+
+    border-radius: 4px;
+
+    font: inherit;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+button:hover {
+
+    background: #00ff66;
+
+    color: #031006;
+
+    transform: translateY(-2px);
+}
+
+
+button:disabled {
+
+    cursor: not-allowed;
+
+    opacity: 0.45;
+
+    transform: none;
+}
+
+
+
+/* =================================
+   NACHRICHTEN
+================================= */
+
+.message {
+
+    min-height: 24px;
+
+    margin-bottom: 0;
+}
+
+
+.error {
+
+    color: #ff5c5c;
+}
+
+
+.success {
+
+    color: #00ff66;
+}
+
+
+.attempts {
+
+    color: #9fb5a5;
+}
+
+
+
+/* =================================
+   SICHERHEITSSEQUENZ
+================================= */
+
+.sequence-output {
+
+    min-height: 50px;
+
+    margin-top: 18px;
+
+    padding: 15px;
+
+    border: 1px dashed #28653d;
+
+    color: #00ff66;
+
+    font-size: 1.2rem;
+
+    word-spacing: 10px;
+}
+
+
+
+/* =================================
+   GEWINNBILDSCHIRM
+================================= */
+
+.win-screen {
+
+    display: none;
+
+    text-align: center;
+
+    border-color: #00ff66;
+}
+
+
+.win-screen.show {
+
+    display: block;
+
+    animation: unlock 0.8s ease;
+}
+
+
+.win-screen h2 {
+
+    color: #00ff66;
+
+    font-size:
+        clamp(2rem, 7vw, 4rem);
+
+    text-shadow:
+        0 0 18px #00ff66;
+}
+
+
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+
+    text-align: center;
+
+    color: #466451;
+
+    font-size: 0.75rem;
+
+    margin-top: 30px;
+}
+
+
+
+/* =================================
+   ANIMATION
+================================= */
+
+@keyframes unlock {
+
+    0% {
+
+        opacity: 0;
+
+        transform: scale(0.9);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform: scale(1);
+    }
+}
+
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+
+    .game-container {
+
+        padding: 20px 0;
+    }
+
+
+    .task-header {
+
+        grid-template-columns:
+            auto 1fr;
+    }
+
+
+    .badge {
+
+        grid-column: 2;
+
+        width: fit-content;
+    }
+
+
+    button {
+
+        width: 100%;
+    }
+}

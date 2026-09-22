@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape the Hacker Room</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="game-container">
+        <header class="header">
+            <p class="terminal-label">/// SECURE TERMINAL ///</p>
+
+            <h1>ESCAPE THE ROOM</h1>
+            <P>
+                Löse alle Sicheheitsaufgaben und entsperre das System.
+            </P>
+        </header>
+
+        <section class="status-panel">
+
+            <h2>Systemstatus</h2>
+
+            <div class="progress">
+                <div id="progressBar"></div>
+
+            </div>
+            <p id="gameStatus">
+                Fortschritte: 0 / 3 Aufgaben abgeschlossen
+            </p>
+        </section>
+
+        <!--Aufgabe 1 -->
+        <section id="task1" class="task aktive">
+            <div class="task-header">
+                <span class="task-number">01</span>
+                <div>
+                    <h2>Zugangscode knacken</h2>
+                    <p>
+                        Finde den geheien zahlencode zwischen 1 und 20.
+
+                    </p>
+                </div>
+                
+                <span id="status1" class="badge">
+                    OFFEN
+                </span>
+
+            </div>
+
+            <label for="codeInput">
+                Dein Code:
+
+            </label>
+
+            <input
+                id="codeInput"
+                type="number"
+                min="1"
+                max="20"
+                placeholder="1 - 20"
+            >
+
+            <button id="codeButton">
+                Code überprüfen
+
+            </button>
+
+            <p class="attempts">
+                Verbleibende Versuche:
+                <strong id="attempts">5</strong>
+
+            </p>
+
+            <p id="codemessage" class="message"></p>
+            
+        </section>
+
+        <!--Aufgabe 2-->
+        <section id="task2" class="task locked">
+
+            <div class="task-header">
+                <span class="task-nummer">02</span>
+
+                <div>
+                    <h2>Passwortprüfung</h2>
+                    <p>
+                        Gib das geheime Systempasswort ein.
+                    </p>
+                </div>
+                <span id="status2" class="badge">GESPERRT</span>
+
+            </div>
+            <label for="passwordInput">
+                passwort:
+            </label>
+
+            <input 
+                id="passwordInput"
+                type="password"
+                placeholder="MindestensZeichen"
+            >
+            <button id="PasswordButton">
+                Password prüfen
+            </button>
+            
+            <p id="passwordMessage" class="message"></p>
+
+
+
+        </section>
+
+        <!--Aufgabe 3-->
+        <section id="task3" class="task locked">
+            <div class="task-header">
+                <span class="task-number">03</span>
+                <div>
+                    <h2>Sicherheitssequenz</h2>
+                    <p>
+                        Gib eine Zahl von 1 bis 10 ein und starte die Sequenz.
+                    </p>
+                </div>
+                <span id="status3" class="badge"> 
+                    GESPERRT
+                </span>
+            </div>
+
+             <label for="sequenceInput">
+                Endzahl:
+            </label>
+            <input
+                id="sequenceInput"
+                type="number"
+                min="1"
+                max="10"
+                placeholder="1 - 10"
+            >
+            <button id="sequenceButton">
+                Sequenz starten
+            </button>
+
+            <div id="sequenceOutput" class="sequence-output"></div>
+            <p id="sequenceMessage" class="message"></p>
+
+        </section>
+
+        <!--Gewinn-->
+        <section id="winScreen" class="win-screen">
+            <p class="terminal-label">
+                /// SECURITY BREACH SUCCESSFUL///
+
+            </p>
+            <h2>SYSTEM UNLOCKED</h2>
+            <P>
+                ACCESS GRANTED - Du hast alles schierheitsprüfungen bestanden.
+            </P>
+
+            <button id="restartButton">
+                spiel neu starten
+            </button>
+
+        </section>
+
+        <footer>
+            <p>
+                HACKER ROOM // SECURITY SYSTEM v1.0
+            </p>
+        </footer>
+    </main>
+</body>
+</html>
